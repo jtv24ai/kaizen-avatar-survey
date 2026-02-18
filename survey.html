@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kaizen Avatar — Founder Profile Survey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="progress-bar-wrap" id="progress-wrap" aria-hidden="true">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="container">
+    <header class="header" id="survey-header">
+      <h1>Kaizen Avatar</h1>
+      <p class="subtitle">Founder Profile Survey</p>
+      <p class="intro">
+        Discover your Kaizen Avatar: one of seven archetypes grounded in continuous-improvement philosophy.
+        Rate each statement from <strong>1 (Strongly disagree)</strong> to <strong>5 (Strongly agree)</strong>.
+      </p>
+    </header>
+
+    <main>
+      <form id="survey-form" class="survey-form" aria-label="Kaizen Avatar Survey">
+        <div id="step-view" class="step-view">
+          <div id="question-step" class="question-step"></div>
+          <div class="step-actions">
+            <button type="button" id="back-btn" class="btn btn-ghost" style="display:none;">Back</button>
+            <button type="button" id="next-btn" class="btn btn-primary">Next</button>
+          </div>
+        </div>
+      </form>
+
+      <section id="result-section" class="result-section" hidden>
+        <h2>Your Kaizen Avatar</h2>
+        <div id="result-content"></div>
+        <div class="result-actions">
+          <button type="button" id="download-btn" class="btn btn-secondary">Download my result (JSON)</button>
+          <button type="button" id="retake-btn" class="btn btn-secondary">Retake survey</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p><a href="index.html">Home</a> · 33 questions · <a href="archetypes.html">7 archetypes</a> · <a href="https://github.com/jtv24ai/kaizen-avatar-survey" rel="noopener noreferrer">GitHub</a></p>
+    </footer>
+  </div>
+
+  <script src="survey-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

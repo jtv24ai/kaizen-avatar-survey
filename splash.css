@@ -1,0 +1,112 @@
+/* Kaizen Avatar — splash / homepage. Simple. Beautiful. KAIZEN. */
+
+:root {
+  --bg: #faf9f7;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --accent: #c93a3a;
+  --accent-hover: #a02d2d;
+  --border: #e8e6e3;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.splash-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.splash-inner {
+  max-width: 480px;
+  width: 100%;
+}
+
+.splash-hero {
+  margin-bottom: 2rem;
+}
+
+.splash-hero img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.splash-title {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.splash-purpose {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0 0 2rem;
+  line-height: 1.7;
+}
+
+.splash-cta {
+  margin-bottom: 2rem;
+}
+
+.splash-cta .btn-take {
+  display: inline-block;
+  padding: 1rem 2.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  letter-spacing: 0.02em;
+}
+
+.splash-cta .btn-take:hover {
+  background: var(--accent-hover);
+}
+
+.splash-cta .btn-take:active {
+  transform: scale(0.98);
+}
+
+.splash-secondary {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.splash-secondary a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.splash-secondary a:hover {
+  text-decoration: underline;
+}
+
+.splash-kanji {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}

@@ -1,0 +1,457 @@
+/* Kaizen Avatar Survey — Typeform-style: minimal, beautiful, easy on the eyes */
+
+:root {
+  --bg: #faf9f7;
+  --bg-elevated: #fff;
+  --surface: #fff;
+  --surface-hover: #f5f4f2;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --accent: #c93a3a;
+  --accent-soft: rgba(201, 58, 58, 0.08);
+  --border: #e8e6e3;
+  --success: #2d7a5e;
+  --radius: 16px;
+  --radius-sm: 12px;
+  --shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "DM Sans", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* Progress bar */
+.progress-bar-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--border);
+  z-index: 10;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.35s ease;
+}
+
+.container {
+  max-width: min(720px, 92vw);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+  padding-top: 2.5rem;
+}
+
+/* Header */
+.header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.intro {
+  margin: 0;
+  max-width: 44ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.intro strong {
+  color: var(--text);
+}
+
+/* Step view — one question at a time */
+.step-view {
+  min-height: 42vh;
+}
+
+.step-progress {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.question-title {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--text);
+  margin: 0 0 2rem;
+  letter-spacing: -0.02em;
+}
+
+/* Scale options — Typeform-style big choices */
+.scale-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.scale-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scale-option:hover {
+  border-color: #d0ceca;
+  background: var(--surface-hover);
+}
+
+.scale-option.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.scale-option input {
+  margin: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.scale-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  min-width: 1.5rem;
+}
+
+.scale-option .scale-label {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.scale-option.is-selected .scale-label {
+  color: var(--text);
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  font-family: var(--font-sans);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #b03232;
+  color: #fff;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary:disabled:hover {
+  background: var(--accent);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-muted);
+  background: var(--surface-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn-ghost:hover {
+  color: var(--text);
+}
+
+/* Result section */
+.result-section {
+  padding: 0.5rem 0 3rem;
+}
+
+.result-section h2 {
+  margin: 0 0 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.result-avatar-visual {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.result-avatar-visual img {
+  max-width: 180px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  object-fit: contain;
+}
+
+.avatar-kanji {
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+
+.result-primary {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.result-en-parens {
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.result-tagline {
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+  padding: 0 1rem;
+  text-align: center;
+  max-width: 48ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1rem;
+}
+
+.result-description {
+  max-width: 56ch;
+  margin: 0 auto 1.75rem;
+}
+
+.result-description p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.result-block {
+  max-width: 56ch;
+  margin: 0 auto 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.result-block h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.result-attributes ul,
+.result-anti-attributes ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.result-attributes li,
+.result-anti-attributes li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.result-anti-attributes {
+  border-color: #e8d4d4;
+  background: rgba(201, 58, 58, 0.04);
+}
+
+.result-anti-attributes h3 {
+  color: #a02d2d;
+}
+
+.landmine-block {
+  max-width: 56ch;
+  margin: 0 auto 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.landmine-block h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.landmine-block p {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.landmine-block .strength {
+  color: var(--success);
+}
+
+.result-secondary {
+  max-width: 56ch;
+  margin: 1.25rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.result-scores {
+  max-width: 56ch;
+  margin: 1.25rem auto 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.result-scores summary {
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.result-scores pre {
+  margin: 0.5rem 0 0;
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-top: 1.5rem;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 2rem 1rem 3rem;
+  }
+  .question-title {
+    font-size: 1.35rem;
+  }
+  .scale-option {
+    padding: 0.9rem 1rem;
+  }
+  .avatar-kanji {
+    font-size: 3rem;
+    padding: 0.75rem 1rem;
+  }
+}
